@@ -11,4 +11,14 @@ func routes(_ app: Application) throws {
     }
 
     try app.register(collection: TodoController())
+
+    app.get("proyectos") { req in
+        PublicarProyecto.query(on: req.db).all()
+    }
+
+    // Ruta para crear un nuevo proyecto
+    app.post("proyectos") { req -> EventLoopFuture<PublicarProyecto> in
+        let proyecto = try req.content.decode(PublicarProyecto.self)
+        return proyecto.save(on: req.db).map { proyecto }
+    }
 }
