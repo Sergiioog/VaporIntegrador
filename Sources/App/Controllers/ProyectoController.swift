@@ -6,19 +6,21 @@ struct ProyectoController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let api = routes.grouped("api")
 
-        api.get("obtenerProyectos", use: obtenerProyectos)
-        api.post("createProyecto", use: createProyecto)
-        api.delete("deleteProyeto", use: deleteProyecto)
+        api.get("getProyectos", use: getProyectos)
+        api.post("postProyecto", use: postProyecto)
+        api.delete("deleteProyecto", ":id" , use: deleteProyecto)
+        api.put("putProyecto", ":id" , use: putProyecto)
+
     }
     
-    func obtenerProyectos(req: Request) async throws-> [PublicarProyecto] {
+    func getProyectos(req: Request) async throws-> [PublicarProyecto] {
 
         return try await PublicarProyecto
             .query(on: req.db)
             .all()
     }
 
-    func createProyecto(req: Request) async throws-> HTTPStatus{
+    func postProyecto(req: Request) async throws-> HTTPStatus{
         let miProyecto = try req.content.decode(PublicarProyecto.self)
 
         try await miProyecto.create(on: req.db)
@@ -39,7 +41,7 @@ struct ProyectoController: RouteCollection {
         return .ok
     }
 
-    func actualizarProyecto(req: Request) async throws -> PublicarProyecto {
+    func putProyecto(req: Request) async throws -> PublicarProyecto {
         guard let proyectoID = req.parameters.get("id", as: Int.self) else {
             throw Abort(.badRequest, reason: "ID del proyecto no proporcionado")
         }
