@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>#(title)</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="assets/iconos/utadazul.png" type="image/x-icon">
 
-    <style>
-
+  <style>
     section.seccion2 {
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
     }
    
     /* Box sizing rules */
@@ -359,13 +356,13 @@ main {
     border:1px solid #005FAC ;
    
 }
-    
+  </style>
 
-    </style>
 </head>
+
 <body>
 
-    <header>
+<header>
         <section class="seccion1">
             <figure class="figureFotoUtad">
                 <img src="assets/imagenes/logoU.png" alt="logo Utad">
@@ -385,51 +382,69 @@ main {
             
         </section>
     </header>
-    <main id="mainIndex">
-        <div class="proyectosMasPopulares">
-            <div id="contenedorusercrear" style="margin-bottom: 20px;">
-                <h2>Proyectos mas relevantes</h2>
-            </div>
-        <div class="contenedorFiltroTarjetas">
-            <div class="filtrosDiv">
-                <div class="tit">
-                    <h3>ORDENAR OFERTAS</h3>
-                </div>
-                <div class="filtrosOrden">
-                    <p>Fecha</p>
-                    <input type="date" id="nombre" name="nombre">
-                </div>
-                <div class="filtrosOrden">
-                    <p>Relevancia</p>
-                    <select id="relevancia" name="nombre">
-                        <option value="opcion1">Más Reciente</option>
-                        <option value="opcion2">Más Antiguo</option>
-                        <option value="opcion3">Más Popular</option>
-                        <option value="opcion4">Menos Popular</option>
-                    </select>
-                </div>
-                <div class="filtrosOrden" id="filt">
-                    <a href="/" class="btnLenguaje">
-                        Filtrar
-                    </a>
-                </div>
-                
-            </div>
-            <div class="tarjetasDiv">
 
-            #for(proyecto in proyectos):
-              <div class="tarjeta">
-                    <h3>#(proyecto.nombreProy)</h3>
-                    <p>#(proyecto.descripcionProy)</p>
-                    <a href="proyectos/#(proyecto.id)">Mas Informacion</a>
-              </div>
-            #endfor
-              
-                           
+ <section class="editar">
+  
+        <main class="pubProy">
+            <div class="proyectosMasPopulares">
+                <div id="contenedorusercrear">
+                    <h2 style="margin-left: 15px; font-size: 26px;">¡Publica tu proyecto!</h2>
+                </div>
             </div>
-        </div>
-        
-    </main>
-    
+           
+            <form method="POST">
+            <div id="verProyectoForm">
+                <div id="divForm1">
+                    <div class="datosForm2">
+                        <div class="divLista" id="divLista1">
+                            <input type="text" class="inputRequisitos" placeholder="Localización (Edif U-tad)" name="localizacion">
+                            <input type="text" class="inputRequisitos" placeholder="Disposicion" name="disposicion">
+                        </div>
+                        <div class="divLista" id="divLista2" >
+                            <input type="text" class="inputRequisitos" placeholder="Nombre del Proyecto" name="nombreProy">
+                            <li>0 inscritos</li>
+                        </div>
+                    </div>
+                </div>
+                <div id="divForm2">
+                    <div class="divReqCon">
+                        <h2>REQUISITOS</h2>
+                        <div class="divLista">
+
+                            <li>Estudios:
+                                <input type="text" class="inputRequisitos" name="estudios">
+                            </li>
+                            <li>Curso recomendado:
+                                <input type="text" class="inputRequisitos" name="cursoRecomendado">
+                            </li>
+                            <li>Idiomas:
+                                <input type="text" class="inputRequisitos" name="idiomas">
+                            </li>
+                            <li>Certificaciones:
+                                <input type="text" class="inputRequisitos" name="certificaciones">
+                            </li>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div id="descripcion">
+                    <h2>DESCRIPCIÓN</h2>
+                    <textarea name="descripcionProy" placeholder="Introduce los detalles de tu proyecto" id="desc" style="width: 800px; max-width: 800px; height: 250px; max-height: 400px;"></textarea>
+                </div>
+            
+            </div>
+
+            
+                <button type="submit">Inscribirme</button>
+
+            </form>
+
+            
+
+        </main>
+
+    </section>
+
+  
 </body>
 </html>

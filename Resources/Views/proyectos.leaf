@@ -1,14 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>#(title)</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="assets/iconos/utadazul.png" type="image/x-icon">
 
-    <style>
-
-    section.seccion2 {
+  <style>
+       section.seccion2 {
     display: flex;
     justify-content: center;
     }
@@ -359,20 +356,20 @@ main {
     border:1px solid #005FAC ;
    
 }
-    
+  </style>
 
-    </style>
 </head>
+
 <body>
 
-    <header>
+<header>
         <section class="seccion1">
             <figure class="figureFotoUtad">
                 <img src="assets/imagenes/logoU.png" alt="logo Utad">
             </figure>
             <ul class="secciones">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="crearProyecto">Mis Proyectos</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="/crearProyecto">Mis Proyectos</a></li>
                 <li><a href="guardarProy.html">Guardado</a></li>
                 <li><a href="chat.html">Chat</a></li>
                 <li><button><a href="iniciarsesion_usuario.html">Usuario</a></button></li>            </ul>
@@ -385,51 +382,119 @@ main {
             
         </section>
     </header>
-    <main id="mainIndex">
-        <div class="proyectosMasPopulares">
-            <div id="contenedorusercrear" style="margin-bottom: 20px;">
-                <h2>Proyectos mas relevantes</h2>
+
+    <main>
+        <div id="verProyectoForm">
+            <div id="divForm1">
+                <div id="datosForm1">
+                    <h1>#(proyecto.nombreProy)</h1>
+                    <button id="botonCerrar">X</button>
+                </div>
+                <div class="datosForm2">
+                    <div class="divLista">
+                        <li>#(proyecto.localizacion)</li>
+                        <li>#(proyecto.disposicion)</li>
+                    </div>
+                    <div class="divLista">
+                        <li>#(proyecto.nombreCreador)</li>
+                        <li>#(proyecto.numInscritos)</li>
+                    </div>
+                </div>
             </div>
-        <div class="contenedorFiltroTarjetas">
-            <div class="filtrosDiv">
-                <div class="tit">
-                    <h3>ORDENAR OFERTAS</h3>
+            <div id="divForm2">
+                <div class="divReqCon">
+                    <h2>REQUISITOS</h2>
+                    <div class="divLista">
+                        <li>Estudios: #(proyecto.estudios)</li>
+                        <li>Curso recomendado: #(proyecto.cursoRecomendado)</li>
+                        <li>Idiomas: #(proyecto.idiomas)</li>
+                        <li>Certificaciones: #(proyecto.certificaciones)</li>
+                    </div>
                 </div>
-                <div class="filtrosOrden">
-                    <p>Fecha</p>
-                    <input type="date" id="nombre" name="nombre">
-                </div>
-                <div class="filtrosOrden">
-                    <p>Relevancia</p>
-                    <select id="relevancia" name="nombre">
-                        <option value="opcion1">Más Reciente</option>
-                        <option value="opcion2">Más Antiguo</option>
-                        <option value="opcion3">Más Popular</option>
-                        <option value="opcion4">Menos Popular</option>
-                    </select>
-                </div>
-                <div class="filtrosOrden" id="filt">
-                    <a href="/" class="btnLenguaje">
-                        Filtrar
-                    </a>
+                <div class="divReqCon">
+                    <h2>CONOCIMIENTOS NECESARIOS:</h2>
+                    <div class="divListaLeng">
+                        <div class="btnLenguaje">
+                            <p>Java</p>
+                        </div>
+                        <div class="btnLenguaje">
+                            <p>Kotlin</p>
+                        </div>
+                        <div class="btnLenguaje">
+                            <p>PHP</p>
+                        </div>
+                        <div class="btnLenguaje">
+                            <p>MySQL</p>
+                        </div>
+                        <div class="btnLenguaje">
+                            <p>Swift</p>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="descripcion">
+                <h2>DESCRIPCIÓN</h2>
+                <p>#(proyecto.descripcionProy)
+                </p>
+            </div>
+             <div id="funciones">
+                <h2>TUS FUNCIONES</h2>
+                <div id="func">
+                    <div class="funcionesInscritos">
+                        <div class="funcion">
+                            <h3>Desarrollador Web</h3>
+                            <ul>
+                                <li>Administrar BBDD</li>
+                                <li>Desarrollo Front-End</li>
+                                <li>Creación de la API</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="funcionesInscritos">
+                        <div class="funcion">
+                            <h3>Animador</h3>
+                            <ul>
+                                <li>Animar la página</li>
+                                <li>Crear anuncios</li>
+                                <li>Creación de la API</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="funcionesInscritos">
+                        <div class="funcion">
+                            <h3>Diseñador Gráfico</h3>
+                            <ul>
+                                <li>Imagenes</li>
+                                <li>Videos</li>
+                                <li>Branding</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
                 
             </div>
-            <div class="tarjetasDiv">
-
-            #for(proyecto in proyectos):
-              <div class="tarjeta">
-                    <h3>#(proyecto.nombreProy)</h3>
-                    <p>#(proyecto.descripcionProy)</p>
-                    <a href="proyectos/#(proyecto.id)">Mas Informacion</a>
-              </div>
-            #endfor
-              
-                           
+            <div class="funcionEnProyecto">
+                <h2>PARTICIPA EN EL PROYECTO</h2>
+                <div id="participacion">
+                    <ul>
+                        <li><input type="checkbox"> Administrar BBDD</li>
+                        <li><input type="checkbox">Desarrollo Front-End</li>
+                        <li><input type="checkbox">Creación de la API</li>
+                    </ul>
+                </div>
             </div>
+            <div id="inscribirme">
+                <a href="guardarProy.html" id="linkGuardar">
+                    <img src="assets/iconos/save.svg" alt="Save">
+                </a>
+                <a href="mis_proyectosreg.html" class="btnLenguaje">
+                    Inscribirme
+                </a>
+            </div>
+           
         </div>
-        
     </main>
-    
+  
 </body>
 </html>

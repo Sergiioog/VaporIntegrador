@@ -13,9 +13,8 @@ public func configure(_ app: Application) throws {
         tlsConfiguration: .forClient(certificateVerification: .none) // Ajustar según las necesidades de seguridad
     ), as: .mysql)
 
-   
+
     app.views.use(.leaf)
 
-    
     try routes(app)
 }

@@ -20,13 +20,13 @@ final class PublicarProyecto: Model, Content {
     var disposicion: String?
     
     @Field(key: "num_inscritos")
-var numInscritos: Int?
+    var numInscritos: Int?
     
     @Field(key: "estudios")
     var estudios: String?
     
     @Field(key: "curso_recomendado")
-var cursoRecomendado: String?
+    var cursoRecomendado: String?
     
     @Field(key: "idiomas")
     var idiomas: String?
